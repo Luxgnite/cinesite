@@ -1,0 +1,104 @@
+/* app css stylesheet */
+
+.menu {
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
+}
+
+.menu:before {
+    content: "[";
+}
+
+.menu:after {
+    content: "]";
+}
+
+.menu > li {
+    display: inline;
+}
+
+.menu > li + li:before {
+    content: "|";
+    padding-right: 0.3em;
+}
+
+/*------------------------------ Header -----------------------------*/
+
+header {
+
+
+}
+
+#nav-wrapper{
+    background-color: #0a63ae;
+    height: 60px;
+}
+nav div{
+    margin-top: 5px;
+    padding: 5px;
+}
+
+nav a{
+    float: right;
+    color: white;
+    font-family: "Open Sans";
+    background: none;
+    border: white 1px solid;
+    border-radius: 2px;
+    padding: 10px;
+    width: 150px;
+    transition: all 200ms;
+    text-align: center;
+}
+
+nav a:hover{
+    color: #0a63ae  ;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: white;
+}
+
+#sub-header {
+    background-color: #f9f9f9;
+}
+
+/*------------------------------- Main ------------------------------*/
+
+#addMovie .row {
+    margin-bottom: 20px;
+}
+
+#addMovie input[type='text'] {
+    border-radius: 2px;
+    border: 1px solid #a9a9a9;
+    height: 3em;
+    width: 30%;
+    margin: 5px;
+    padding: 5px;
+    transition: all 150ms;
+}
+
+#addMovie input[type='text']:focus {
+    transform: scale(1.01);
+    border: 2px solid #08477d;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+#addMovie textarea {
+    border-radius: 2px;
+    padding: 5px;
+    border: 1px solid #a9a9a9;
+    height: 100%;
+    width: 100%;
+    margin: 10px 5px;
+    transition: padding 100ms, border 200ms, transform 200ms;
+}
+
+#addMovie textarea:focus {
+    transform: scale(1.001);
+    border: 2px solid #08477d;
+    padding: 10px;
+}
