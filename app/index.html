@@ -19,13 +19,19 @@
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
+<body onload="init()">
 
 <header>
     <div  id="nav-wrapper">
-        <nav class="container">
-            <div class="row"> <a>Ajouter un film</a> </div>
+        <nav class="container" ng-controller="searchController">
+            <div class="row">
+                <input id="search" ng-model="keyword" type="text" name="search" placeholder="Chercher un film..." ng-keyup="search()">
+                <div id="search-icon"></div>
+                <a>Ajouter un film</a>
+            </div>
         </nav>
+    </div>
+    <div class="container hidden" id="search-result">
     </div>
     <div id="sub-header">
         <div class="container">
@@ -37,45 +43,58 @@
 
 <main class="container">
 
-    <form id="addMovie" ng-controller="formController">
+    <form id="addMovie" ng-controller="formController" ng-submit="submit()">
         <h3>Ajout de film</h3>
         <div class="col-lg-9">
             <div class="row">
-                <input type="text" name="title" placeholder="Titre" autofocus="true">
-                <input type="text" name="realisator" placeholder="Réalisateur">
+                <input type="text" name="title" placeholder="Titre" autofocus="true" ng-model="title">
+                <input type="text" name="realisator" placeholder="Réalisateur" ng-model="realisator">
             </div>
             <div class="row">
-                <input type="text" name="duration" placeholder="Durée">
-                <input type="text" name="genre" placeholder="Genre(s)">
+                <input type="text" name="duration" placeholder="Durée" ng-model="duration">
+                <input type="text" name="genre" placeholder="Genre(s)" ng-model="genre">
             </div>
             <div class="row">
                 <textarea placeholder="Synopsis"></textarea>
             </div>
             <div class="row"></div>
             <div class="row">
-                <input type="text" placeholder="Date de séance" ng-model="date" date-picker>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <input type="text" placeholder="Date de séance" ng-model="date" date-picker>
+                    </div>
+                    <div class="row">
+                        <input type="submit" value="Créer">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="map"></div>
+                </div>
+
             </div>
-            <div class="row">
-                <input type="submit" value="Créer">
-            </div>
+
         </div>
 
         <div class="col-lg-3">
             <div class="row">
-                <img ng-src="{{file}}">
+                <label for="picture">Affiche du film</label>
                 <input type="file" name="picture" ng-model="file" preview-image>
+                <img ng-src="{{file}}">
             </div>
         </div>
     </form>
 
 </main>
 
+<footer> Faire un document pour dire ce que tu as fais avec quoi</footer>
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-
+<script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4HpLdlulk0imSCkEiYlJxdGITaHARLsY">
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">

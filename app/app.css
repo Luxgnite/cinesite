@@ -40,7 +40,6 @@ header {
     height: 60px;
 }
 nav div{
-    margin-top: 5px;
     padding: 5px;
 }
 
@@ -56,6 +55,7 @@ nav a{
     width: 150px;
     transition: all 200ms;
     text-align: center;
+    margin: 5px;
 }
 
 nav a:hover{
@@ -69,6 +69,47 @@ nav a:hover{
     background-color: #f9f9f9;
 }
 
+#search {
+    margin: 5px;
+    border-radius: 2px;
+    border: none;
+    width: 230px;
+    padding: 10px;
+    transition: all 200ms;
+    float: left;
+}
+
+#search:focus{
+    width: 350px;
+}
+#search-icon{
+    padding: 0px;
+    position: relative;
+    width: 0px;
+    height: 100%;
+    float: left;
+}
+
+#search-icon::after{
+    content: ' ';
+    background-image: url("img/search.svg");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+#search-result.hidden{
+    padding: 0;
+    margin: 0;
+}
+
+#search-result.shown{
+    height: 20vh;
+    width: 100%;
+}
 /*------------------------------- Main ------------------------------*/
 
 #addMovie .row {
@@ -127,4 +168,14 @@ nav a:hover{
     text-decoration: none;
     cursor: pointer;
     background-color: #0a63ae;
+}
+
+#addMovie img {
+    max-height: 700px;
+    max-width: 500px;
+    margin: 20px;
+}
+
+#map {
+    height: 400px;
 }
