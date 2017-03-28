@@ -3,7 +3,29 @@
 var map;
 
 function init () {
-    localStorage.setItem("Movie", JSON.stringify([]));
+    var movies = [
+        {
+          title: "Ce poisson, la vie et moi",
+            realisator: "Moi",
+            duration: "59:59",
+            genre: "Mystère, Horreur, Romance",
+            synopsis: "Glou glou. Argh, je suis mort.",
+            date: "11-12-2013",
+            file: "http://vignette2.wikia.nocookie.net/animalcrossing/images/f/fb/Vache-clairemedium.png/revision/latest?cb=20151220120443&path-prefix=fr"
+        },
+
+        {
+            title: "Ce poisson, la vie et moi",
+            realisator: "Moi",
+            duration: "59:59",
+            genre: "Mystère, Horreur, Romance",
+            synopsis: "Glou glou. Argh, je suis mort.",
+            date: "11-12-2013",
+            file: "https://francaisdefrance.files.wordpress.com/2012/01/grand-moment-de-loose-pour-mathieu-madenian-dans-mot-de-passe_flash_video_background.jpg"
+        }
+    ];
+
+    localStorage.setItem("Movie", JSON.stringify(movies));
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -34.397, lng: 150.644},
         zoom: 8
@@ -62,23 +84,34 @@ cinema.controller("formController", function ($scope) {
 cinema.controller("searchController", function($scope) {
     $scope.keyword = "";
     $scope.search = function(){
+        var searchResult = $("#search-result");
+
+        if($scope.keyword !== "") {
+            searchResult.addClass("shown");
+            searchResult.removeClass("hidden");
+        }
+        else
+        {
+            searchResult.addClass("hidden");
+            searchResult.removeClass("shown");
+        }
+
+
         var movies = JSON.parse(localStorage.getItem("Movie"));
+        console.log(movies);
         var result = [];
         var html = "";
+        searchResult.empty();
         for (let movie of movies)
         {
-            if(movie.title === $scope.keyword || movie.realisator === $scope.keyword)
+            if(movie.title.includes($scope.keyword) && $scope.keyword!=="" || movie.realisator.includes($scope.keyword) && $scope.keyword!=="")
             {
+                console.log(movie);
                 result.push(movie);
-                html = "<img src='"+movie.file+"'/>";
+                searchResult.append("<img class='result' src='"+movie.file+"'/>");
             }
 
         }
-        console.log(html);
-        var searchResult = $("#search-result");
-        searchResult.removeClass("hidden");
-        searchResult.addClass("shown");
 
-        searchResult.append(html);
     };
 });
