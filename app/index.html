@@ -51,12 +51,19 @@
             <div class="row">
                 <textarea placeholder="Synopsis"></textarea>
             </div>
+            <div class="row"></div>
+            <div class="row">
+                <input type="text" placeholder="Date de séance" ng-model="date" date-picker>
+            </div>
+            <div class="row">
+                <input type="submit" value="Créer">
+            </div>
         </div>
 
         <div class="col-lg-3">
             <div class="row">
-                <img src="">
-                <input type="file" name="picture">
+                <img ng-src="{{file}}">
+                <input type="file" name="picture" ng-model="file" preview-image>
             </div>
         </div>
     </form>
