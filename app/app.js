@@ -2,7 +2,7 @@
 
 var map;
 
-function init () {
+$(document).ready(function () {
     var movies = [
         {
           title: "Ce poisson, la vie et moi",
@@ -30,7 +30,7 @@ function init () {
         center: {lat: -34.397, lng: 150.644},
         zoom: 8
     });
-}
+});
 
 var cinema = angular.module("cinema", []);
 cinema.directive("datePicker", function () {
@@ -108,7 +108,8 @@ cinema.controller("searchController", function($scope) {
             {
                 console.log(movie);
                 result.push(movie);
-                searchResult.append("<img class='result' src='"+movie.file+"'/>");
+                searchResult.append("<figure class='result'><img src='"+movie.file+"'/>" +
+                    "<figcaption>"+movie.title+"</figcaption></figure>");
             }
 
         }

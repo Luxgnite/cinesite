@@ -111,6 +111,8 @@ nav a:hover{
     height: 30vh;
     width: 100%;
     padding: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 #search-result .result{
@@ -118,6 +120,36 @@ nav a:hover{
     max-width: 200px;
     margin: 0px 10px;
 }
+
+#search-result .result img{
+    height: 100%;
+    width: 100%;
+}
+
+#search-result figure{
+    position: relative;
+    cursor: pointer;
+}
+
+#search-result figure figcaption {
+    height: 0px;
+    visibility: hidden;
+    transition: height 500ms;
+}
+
+#search-result figure:hover figcaption{
+    visibility: visible;
+    color: white;
+    display: block;
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 40%;
+    bottom: 0px;
+    padding: 10px;
+}
+
 /*------------------------------- Main ------------------------------*/
 
 #addMovie .row {
@@ -135,6 +167,7 @@ nav a:hover{
 }
 
 #addMovie input[type='text']:focus {
+    outline: none;
     transform: scale(1.01);
     border: 2px solid #08477d;
     border-radius: 2px;
@@ -152,6 +185,7 @@ nav a:hover{
 }
 
 #addMovie textarea:focus {
+    outline: none;
     transform: scale(1.001);
     border: 2px solid #08477d;
     padding: 10px;
