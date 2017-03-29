@@ -44,6 +44,7 @@ nav div{
 }
 
 nav a{
+    text-decoration: none;
     float: right;
     color: white;
     font-family: "Open Sans", "Arial Black", Helvetica;
@@ -63,6 +64,10 @@ nav a:hover{
     text-decoration: none;
     cursor: pointer;
     background-color: white;
+}
+
+nav a:focus{
+    text-decoration: none;
 }
 
 #sub-header {
@@ -134,7 +139,8 @@ nav a:hover{
 #search-result figure figcaption {
     height: 0px;
     visibility: hidden;
-    transition: height 500ms;
+    transition: height 300ms;
+    font-weight: bold;
 }
 
 #search-result figure:hover figcaption{
@@ -160,7 +166,7 @@ nav a:hover{
     border-radius: 2px;
     border: 1px solid #a9a9a9;
     height: 3em;
-    width: 30%;
+    width: 47.5%;
     margin: 5px;
     padding: 5px;
     transition: all 150ms;
@@ -178,8 +184,8 @@ nav a:hover{
     border-radius: 2px;
     padding: 5px;
     border: 1px solid #a9a9a9;
-    height: 100%;
-    width: 100%;
+    height: 20em;
+    width: 98%;
     margin: 10px 5px;
     transition: padding 100ms, border 200ms, transform 200ms;
 }
@@ -219,5 +225,22 @@ nav a:hover{
 }
 
 #map {
-    height: 400px;
+    height: 20vh;
+}
+
+#movShow {
+    margin: 10px;
+}
+
+#movShow img{
+    width: 90%;
+    max-height: 400px;
+}
+
+#movShow strong {
+    font-weight: bold;
+}
+
+#movShow div.row:nth-child(even) {
+    padding: 20px;
 }

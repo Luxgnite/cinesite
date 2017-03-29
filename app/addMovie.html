@@ -1,0 +1,42 @@
+<form id="addMovie" ng-submit="submit()">
+    <h3>Ajout de film</h3>
+    <div class="col-lg-6">
+        <div class="row">
+            <input type="text" name="title" placeholder="Titre" autofocus="true" ng-model="title">
+            <input type="text" name="realisator" placeholder="Réalisateur" ng-model="realisator">
+        </div>
+        <div class="row">
+            <input type="text" name="duration" placeholder="Durée" ng-model="duration">
+            <input type="text" name="genre" placeholder="Genre(s)" ng-model="genre">
+        </div>
+        <div class="row">
+            <textarea name="synopsis" ng-model="synopsis" placeholder="Synopsis"></textarea>
+        </div>
+        <div class="row"></div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <input type="text" placeholder="Date de séance" ng-model="date" date-picker>
+                </div>
+                <div class="row">
+                    <input type="submit" value="Créer">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div id="map"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-3">
+        <div class="row">
+            <label for="picture">Affiche du film</label>
+            <input type="file" name="picture" ng-model="file" preview-image>
+            <img ng-src="{{file}}">
+        </div>
+    </div>
+</form>
